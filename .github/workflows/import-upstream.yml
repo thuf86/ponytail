@@ -1,0 +1,26 @@
+name: Importar código oficial Ponytail
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-upstream.yml'
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Importar todos os arquivos oficiais preservando README PT-BR
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 https://github.com/DietrichGebert/ponytail.git /tmp/ponytail-oficial
+          rsync -a --exclude='.git/' --exclude='README.md' --exclude='.github/workflows/import-upstream.yml' /tmp/ponytail-oficial/ ./
+          git add -A
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'chore: importa código completo do projeto original'
+            git push
+          fi
