@@ -1,23 +1,66 @@
-# Ponytail — Guia em Português Brasileiro
+<div align="center">
 
-> Ferramenta original: https://github.com/DietrichGebert/ponytail
+# 🧩 PONYTAIL
 
-Ponytail é um conjunto de regras, skills e plugins para agentes de programação, projetado para incentivar soluções simples, reduzir complexidade desnecessária e melhorar revisões de código. Esta página documenta como instalar o projeto oficial no **Codex** e no **Claude Code**.
+**Regras, skills e plugins para simplificar o desenvolvimento assistido por IA**
 
-## Instalação no Codex
+![Idioma](https://img.shields.io/badge/IDIOMA-PT--BR-65c600?style=for-the-badge)
+![Codex](https://img.shields.io/badge/OPENAI_CODEX-COMPAT%C3%8DVEL-0078d4?style=for-the-badge)
+![Claude](https://img.shields.io/badge/CLAUDE_CODE-COMPAT%C3%8DVEL-111827?style=for-the-badge)
+![Origem](https://img.shields.io/badge/ORIGEM-DietrichGebert-f0b400?style=for-the-badge)
 
-No terminal:
+</div>
+
+---
+
+## ⭐ Apoie o projeto — deixe uma ⭐
+
+Se este guia ajudar, considere deixar uma estrela e compartilhar melhorias. Apoie também o [projeto original](https://github.com/DietrichGebert/ponytail).
+
+---
+
+## 📌 Visão geral
+
+O **Ponytail** reúne instruções, skills e plugins para agentes de programação, incentivando soluções mais simples, menos complexidade desnecessária e revisões de código criteriosas.
+
+**Projeto original:** [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)  
+**Documentação em português:** [thuf86](https://github.com/thuf86)
+
+> **Importante:** este repositório disponibiliza um guia comunitário em português. Não é, atualmente, um espelho completo do código original. Os comandos abaixo instalam a distribuição oficial.
+
+---
+
+## ✨ Principais recursos
+
+| Recurso | Finalidade |
+|---|---|
+| Regras de desenvolvimento | Incentivar implementações diretas e evitar complexidade desnecessária |
+| Skills | Orientar tarefas de desenvolvimento e revisão |
+| Integração Codex | Instalação por marketplace e hooks |
+| Integração Claude Code | Instalação como plugin do Claude |
+| Configuração assistida | Prompt pronto para executar no agente |
+| Documentação PT-BR | Guia de instalação e referências oficiais |
+
+---
+
+## 🚀 Instalação rápida
+
+**Requisito:** Node.js disponível no PATH para os hooks de ciclo de vida.
+
+### OpenAI Codex
+
+Execute no terminal:
 
 ```bash
 codex plugin marketplace add DietrichGebert/ponytail
 codex plugin add ponytail@ponytail
 ```
 
-Depois inicie o Codex, abra `/hooks`, revise e autorize os dois hooks e comece uma nova conversa. Reinicie o aplicativo desktop se necessário.
+Inicie o Codex, abra `/hooks`, **revise e autorize** os dois hooks e comece uma nova conversa. Reinicie o aplicativo desktop, se necessário.
 
-## Instalação no Claude Code
+### Claude Code
 
-Envie **em duas mensagens separadas** dentro do Claude Code:
+Execute **separadamente**, dentro do Claude Code:
 
 ```text
 /plugin marketplace add DietrichGebert/ponytail
@@ -27,37 +70,64 @@ Envie **em duas mensagens separadas** dentro do Claude Code:
 /plugin install ponytail@ponytail
 ```
 
-**Requisito:** Node.js disponível no PATH para execução dos hooks de ciclo de vida.
+---
 
-## Prompt universal — copie para Codex ou Claude
+## 🤖 Prompt universal — instalação com Codex ou Claude Code
+
+Copie e cole este prompt no agente desejado:
 
 ```text
-Instale e configure o Ponytail globalmente para meu agente de programação.
+Instale e configure globalmente o Ponytail para meu agente de programação.
 Fonte oficial: https://github.com/DietrichGebert/ponytail
-Guia em português: https://github.com/thuf86/ponytail
+Guia PT-BR: https://github.com/thuf86/ponytail
 
-1. Identifique o sistema operacional e se está executando no Codex ou Claude Code.
-2. Leia o README.md e o INSTALL.md oficiais e identifique requisitos e comandos atuais.
-3. Verifique Node.js, instalações anteriores, permissões e configurações existentes.
-4. Instale pelo marketplace oficial, seguindo o método correspondente ao agente.
-5. Para Codex, revise os hooks comigo antes de habilitá-los via /hooks.
-6. Para Claude Code, execute separadamente os dois comandos /plugin.
-7. Configure o plugin em escopo global de usuário quando suportado.
-8. Preserve outras skills, plugins, arquivos e configurações já existentes.
-9. Valide carregamento, comandos, skills e hooks em uma nova sessão.
-10. Documente atualização, desativação e desinstalação.
-11. Não execute scripts remotos não revisados nem altere configurações sensíveis sem autorização.
+1. Identifique o sistema operacional e o agente atual (Codex ou Claude Code).
+2. Leia o README.md e INSTALL.md oficiais e confirme os requisitos atuais.
+3. Verifique Node.js, instalações anteriores, plugins, hooks e permissões.
+4. Instale pelo marketplace oficial usando o método específico do agente.
+5. No Codex, apresente os hooks para minha revisão antes de habilitá-los.
+6. No Claude Code, envie os dois comandos /plugin separadamente.
+7. Configure no escopo global do usuário, quando suportado.
+8. Preserve minhas configurações, plugins e skills existentes.
+9. Reinicie a sessão quando necessário e valide o carregamento do plugin.
+10. Explique como atualizar, desativar e desinstalar.
+11. Não execute scripts remotos não revisados nem modifique configurações
+    sensíveis sem minha autorização.
 
-Ao concluir, apresente um relatório em português com versão, origem,
-comandos utilizados, testes, resultados e eventuais pendências.
+Entregue relatório em português com ambiente, origem, versão,
+comandos executados, validações e pendências.
 ```
 
-## Documentação e autoria
+---
 
-- [Repositório original](https://github.com/DietrichGebert/ponytail)
-- [Manual de instalação](https://github.com/DietrichGebert/ponytail/blob/main/INSTALL.md)
-- [Licença original](https://github.com/DietrichGebert/ponytail/blob/main/LICENSE)
+## 📂 Estrutura do repositório
 
-**Créditos:** DietrichGebert e colaboradores. Guia em português mantido por thuf86.
+```text
+ponytail/
+└── README.md     # Guia PT-BR e prompt universal
+```
 
-**Nota de integridade:** este repositório contém, neste momento, documentação de instalação e não deve ser confundido com uma cópia integral do código-fonte original. Instale pelo projeto oficial nos comandos acima.
+O código executável, skills e hooks estão no [repositório oficial](https://github.com/DietrichGebert/ponytail).
+
+---
+
+## 📚 Documentação
+
+- [README oficial](https://github.com/DietrichGebert/ponytail/blob/main/README.md)
+- [Manual oficial de instalação](https://github.com/DietrichGebert/ponytail/blob/main/INSTALL.md)
+- [Código-fonte e atualizações](https://github.com/DietrichGebert/ponytail)
+
+---
+
+## 🔐 Segurança e boas práticas
+
+Revise os hooks antes de autorizá-los, preserve as configurações existentes e não compartilhe credenciais ou tokens. Confirme sempre os comandos na documentação oficial antes de executá-los.
+
+---
+
+## ⚖️ Créditos e licença
+
+**Autor do projeto original:** [DietrichGebert](https://github.com/DietrichGebert/ponytail) e colaboradores.  
+**Guia comunitário em português:** [thuf86](https://github.com/thuf86).
+
+A licença e os direitos autorais do código original pertencem aos respectivos titulares. Consulte o [arquivo LICENSE oficial](https://github.com/DietrichGebert/ponytail/blob/main/LICENSE).
